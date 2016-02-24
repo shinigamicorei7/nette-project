@@ -1,0 +1,21 @@
+{block content}
+<h1 n:block=title>Recuperar contraseña</h1>
+<div n:snippet=recoveryForm>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message|noescape}</div>
+	{if count($flashes) == 0}
+		{control recoveryForm}
+	{else}
+		<a n:href="Sign:in">Iniciar Sesión</a>
+	{/if}
+</div>
+{/block}
+
+{block scripts}
+{include parent}
+<script src="{$basePath}/js/nette.ajax.js"></script>
+<script>
+	$(function () {
+		$.nette.init();
+	});
+</script>
+{/block}

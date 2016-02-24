@@ -5,12 +5,11 @@ namespace App\Presenters;
 use Nette;
 use App\Forms\SignFormFactory;
 
-
 class SignPresenter extends BasePresenter
 {
+
 	/** @var SignFormFactory @inject */
 	public $factory;
-
 
 	/**
 	 * Sign-in form factory.
@@ -19,12 +18,17 @@ class SignPresenter extends BasePresenter
 	protected function createComponentSignInForm()
 	{
 		$form = $this->factory->create();
-		$form->onSuccess[] = function ($form) {
+		$form->onSuccess[] = function ($form)
+		{
 			$form->getPresenter()->redirect('Homepage:');
 		};
 		return $form;
 	}
 
+	protected function createComponentRecoveryForm()
+	{
+		return $this->factory->createRecovery();
+	}
 
 	public function actionOut()
 	{

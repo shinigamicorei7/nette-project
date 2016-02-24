@@ -15,6 +15,7 @@ class RouterFactory
 	 */
 	public static function createRouter()
 	{
+		return new \Nette\Application\Routers\SimpleRouter('Sign:in');
 		$router = new RouteList;
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
