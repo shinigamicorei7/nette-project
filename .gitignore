@@ -1,0 +1,8 @@
+/nbproject/
+/app/config/config.local.neon
+/vendor/
+/log/*
+/temp/*
+!.gitignore
+!.htaccess
+composer.lock
